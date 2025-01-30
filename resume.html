@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelvin Takyi-Bobi - Resume</title>
+    <style>
+        #printPdf {
+            /* Your existing button styles */
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #printPdf:hover {
+            background-color: #219a52;
+        }
+
+        .temp-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            visibility: hidden;
+            z-index: -1;
+        }
+
+        /* Previous styles remain unchanged */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin: 15px 0 5px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        .job-title {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .languages {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .languages {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <button id="printPdf">Download PDF Resume</button>
+    <h1>Kelvin Takyi-Bobi</h1>
+    <div class="contact-info">
+        📧 hiketabo@gmail.com | 📱 +233241122449<br>
+        📍 Apam Junction, Ghana | 🌐 https://www.linkedin.com/in/kelvin-takyi-bobi-559a2397/
+    </div>
+
+    <!-- Rest of the content remains the same -->
+    <section class="profile">
+        <h2>Profile</h2>
+        <p>Resourceful self-taught software engineer dedicated to continuous learning and problem-solving. Adept at quickly learning new technologies and methodologies to meet project demands, I excel at transforming challenges into opportunities for innovation. My hands-on experience in diverse projects has equipped me with a unique perspective, allowing me to deliver tailored software solutions that meet client needs.</p>
+    </section>
+
+    
+
+    <section class="experience">
+        <h2>Professional Experience</h2>
+
+        <div class="experience-item">
+            <h3>RocketSwap (DEX on Lamden Blockchain)</h3>
+            <div class="job-title">Software Engineer</div>
+            <ul>
+                <li>Designed and implemented a smart contract (in a Python subset language) to manage multiple payouts for weekly contests, streamlining the distribution process. Automated the transaction submission with a Python script, significantly reducing manual effort and increasing efficiency in fund disbursement.</li>
+                <li>Authored and tested a variety of smart contracts for diverse applications, including locking mechanisms and lite DAO functionalities. These contributions bolstered the platform's security and operational capabilities, ensuring reliable and efficient contract execution.</li>
+            </ul>
+        </div>
+        
+        <div class="experience-item">
+            <h3>Xian.org</h3>
+            <div class="job-title">Software Engineer</div>
+            <ul>
+                <li>
+                    Migrated an NFT dApp to Xian, enhancing user engagement by developing Telegram and Twitter bots that notify users of new NFT creations. Modified API calls to ensure compatibility with Xian's blockchain specifications, resulting in a significant increase in transactional activity.
+                </li>
+                <li>
+                    Enhanced the Xian web wallet extension by implementing browser-based linting for a Python subset language (contracting), which previously relied on a node API to process linting. Discontent with the initial solution, I integrated linting directly in the browser using Pyodide, eliminating the need for the node API and improving the developer experience and efficiency by providing immediate feedback within the IDE.
+                </li>
+                <li>
+                    Developed a web application that empowered participants in a seed sale to seamlessly claim their tokens. Integrated Ethereum tooling to allow users to securely sign their Xian addresses, enabling backend verification and improving user trust and interaction.
+                </li>    
+            </ul>
+        </div>
+
+        <!--div class="experience-item">
+            <h3>Solutions Inc</h3>
+            <div class="job-title">Product Specialist</div>
+            <ul>
+                <li>Developed and implemented a product strategy for the European market, resulting in a 25% revenue growth</li>
+                <li>Conducted training sessions and presentations for customers and sales team to enhance product knowledge</li>
+            </ul>
+        </div-->
+    </section>
+
+    <section class="technical skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <ul>
+                <li>Languages: Python, HTML/CSS/JS, Solidity</li>
+                <li>Frameworks: Svelte/Sveltekit</li>
+                <li>Database: SQLite</li>
+                <li>Agile framework: Kanban</li>
+            </ul>
+            <!--ul>
+                <li>Customer needs analysis and market research</li>
+                <li>Kanban</li>
+                <li>Data analysis</li>
+            </ul-->
+        </div>
+    </section>
+
+    <!--section class="education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>Master of Business Administration (OBA)</h3>
+            <div class="job-title">University</div>
+        </div>
+        <div class="education-item">
+            <h3>Bachelor of Engineering in Information Technology</h3>
+            <div class="job-title">Technical University</div>
+        </div>
+    </section-->
+
+    <!--section class="languages-section">
+        <h2>Languages</h2>
+        <div class="languages">
+            <span>German</span>
+            <span>English</span>
+            <span>Spanish</span>
+        </div>
+    </section-->
+    <!-- Add scripts at the end of body -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    document.getElementById('printPdf').addEventListener('click', async function() {
+    // Create a clone of the entire body
+    const bodyClone = document.body.cloneNode(true);
+    
+    // Remove the button from the clone
+    const clonedButton = bodyClone.querySelector('#printPdf');
+    if (clonedButton) clonedButton.remove();
+    
+    // Create temporary container for the clone
+    const tempDiv = document.createElement('div');
+    tempDiv.className = 'temp-container';
+    tempDiv.appendChild(bodyClone);
+    
+    // Add to DOM temporarily
+    document.body.appendChild(tempDiv);
+
+    // Add small delay to ensure rendering
+    await new Promise(resolve => setTimeout(resolve, 50));
+
+    try {
+        const canvas = await html2canvas(bodyClone, {
+            logging: true,
+            useCORS: true,
+            scale: 2,
+            windowWidth: document.documentElement.offsetWidth,
+            windowHeight: document.documentElement.offsetHeight,
+            onclone: (clonedDoc) => {
+                // Ensure proper styling in the clone
+                clonedDoc.querySelector('.temp-container').style.visibility = 'visible';
+            }
+        });
+
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jspdf.jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+        });
+
+        const imgWidth = pdf.internal.pageSize.getWidth();
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+        pdf.save('Kelvin_Takyi-Bobi_Resume.pdf');
+    } catch (error) {
+        console.error('Error generating PDF:', error);
+    } finally {
+        // Clean up temporary elements
+        tempDiv.remove();
+    }
+});
+</script>
+</body>
+
+</html>
