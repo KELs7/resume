@@ -23,12 +23,9 @@
         }
 
         .temp-container {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            visibility: hidden;
-            z-index: -1;
+            width: 794px !important;
+            margin: 0 auto !important;
+            padding: 5px 10px !important; /* Reduced container padding */
         }
 
         /* Previous styles remain unchanged */
@@ -42,16 +39,16 @@
         body {
             background-color: #ffffff;
             color: #333333;
-            line-height: 1.6;
-            padding: 40px 20px;
-            max-width: 800px;
+            line-height: 1.5;
+            padding: 15px 10px !important;  /* Reduced padding */
+            max-width: 794px; /* Exact A4 width in pixels (210mm) */
             margin: 0 auto;
         }
 
         h1 {
             color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 5px;
+            font-size: 2.2em;
+            margin-bottom: 3px;
         }
 
         .contact-info {
@@ -63,7 +60,7 @@
         h2 {
             color: #34495e;
             font-size: 1.4em;
-            margin: 30px 0 15px;
+            margin: 20px 0 10px; /* Reduced spacing */
             border-bottom: 2px solid #ecf0f1;
             padding-bottom: 5px;
         }
@@ -75,7 +72,7 @@
         }
 
         ul {
-            margin-left: 20px;
+            margin-left: 15px; /* Tighter list indentation */
         }
 
         .job-title {
@@ -221,53 +218,50 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
     document.getElementById('printPdf').addEventListener('click', async function() {
-    // Create a clone of the entire body
     const bodyClone = document.body.cloneNode(true);
-    
-    // Remove the button from the clone
     const clonedButton = bodyClone.querySelector('#printPdf');
     if (clonedButton) clonedButton.remove();
-    
-    // Create temporary container for the clone
+
     const tempDiv = document.createElement('div');
     tempDiv.className = 'temp-container';
     tempDiv.appendChild(bodyClone);
-    
-    // Add to DOM temporarily
     document.body.appendChild(tempDiv);
 
-    // Add small delay to ensure rendering
     await new Promise(resolve => setTimeout(resolve, 50));
 
     try {
-        const canvas = await html2canvas(bodyClone, {
-            logging: true,
+        const canvas = await html2canvas(tempDiv, {
+            scale: 2, // Increased from 0.9
             useCORS: true,
-            scale: 2,
-            windowWidth: document.documentElement.offsetWidth,
-            windowHeight: document.documentElement.offsetHeight,
+            width: 794,
+            height: 1123,
+            windowWidth: 794,
+            logging: true,
+            allowTaint: true,
+            letterRendering: true,
+            ignoreElements: (element) => element.id === 'printPdf',
             onclone: (clonedDoc) => {
-                // Ensure proper styling in the clone
                 clonedDoc.querySelector('.temp-container').style.visibility = 'visible';
             }
         });
 
-        const imgData = canvas.toDataURL('image/png');
         const pdf = new jspdf.jsPDF({
             orientation: 'portrait',
             unit: 'mm',
-            format: 'a4'
+            format: 'a4',
+            compress: true
         });
 
+        // Calculate dimensions with original scale
         const imgWidth = pdf.internal.pageSize.getWidth();
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         
-        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+        // Add image with high quality settings
+        pdf.addImage(canvas, 'PNG', 8, 8, imgWidth - 16, imgHeight - 16, undefined, 'FAST');
         pdf.save('Kelvin_Takyi-Bobi_Resume.pdf');
     } catch (error) {
         console.error('Error generating PDF:', error);
     } finally {
-        // Clean up temporary elements
         tempDiv.remove();
     }
 });
