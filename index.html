@@ -199,10 +199,10 @@
             </div>
             <ul>
                 <li>
-                    Migrated an NFT dApp to Xian, enhancing user engagement by developing Telegram and Twitter bots that notify users of new NFT creations. Modified API calls to ensure compatibility with Xian's blockchain specifications, resulting in a significant increase in transactional activity.
+                    Migrated an NFT dApp to Xian. Modified API calls to ensure compatibility with Xian's blockchain specifications, resulting in a significant increase in transactional activity.
                 </li>
                 <li>
-                    Enhanced the Xian web wallet extension by implementing browser-based linting for a Python subset language (contracting), which previously relied on a node API to process linting. Discontent with the initial solution, I integrated linting directly in the browser using Pyodide, eliminating the need for the node API and improving the developer experience and efficiency by providing immediate feedback within the IDE.
+                    Enhanced the Xian web wallet extension by implementing browser-based linting for a Python subset language (contracting), which previously relied on a node API to process linting. This solution improved the developer experience and efficiency by providing immediate feedback within the IDE.
                 </li>
                 <li>
                     Developed a web application that empowered participants in a seed sale to seamlessly claim their tokens. Integrated Ethereum tooling to allow users to securely sign their Xian addresses, enabling backend verification and improving user trust and interaction.
@@ -271,7 +271,7 @@
     tempDiv.appendChild(bodyClone);
     document.body.appendChild(tempDiv);
 
-    await new Promise(resolve => setTimeout(resolve, 50));
+    await new Promise(resolve => setTimeout(resolve, 30));
 
     try {
         const canvas = await html2canvas(tempDiv, {
