@@ -28,6 +28,43 @@
             padding: 5px 10px !important; /* Reduced container padding */
         }
 
+        /* job details*/
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 15px;
+        }
+
+        .job-title {
+            color: #7f8c8d;
+            margin-bottom: 0; /* Remove previous bottom margin */
+            line-height: 1.2; /* Match line-height with details */
+        }
+
+        .job-details {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            text-align: right;
+            line-height: 1.2; /* Added for consistency */
+            white-space: nowrap; /* Prevent wrapping */
+            margin-top: 2px; /* Fine-tune vertical alignment */
+        }
+
+        @media (max-width: 768px) {
+        .job-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 3px; /* Reduced gap for mobile */
+        }
+        .job-details {
+            text-align: left;
+            margin-top: 0;
+            white-space: normal; /* Allow wrapping on mobile */
+        }
+    }
+
         /* Previous styles remain unchanged */
         * {
             margin: 0;
@@ -143,7 +180,10 @@
 
         <div class="experience-item">
             <h3>RocketSwap (DEX on Lamden Blockchain)</h3>
+            <div class="job-header">
             <div class="job-title">Software Engineer</div>
+                <div class="job-details">2022 August - 2023 June | Remote</div>
+            </div>
             <ul>
                 <li>Designed and implemented a smart contract (in a Python subset language) to manage multiple payouts for weekly contests, streamlining the distribution process. Automated the transaction submission with a Python script, significantly reducing manual effort and increasing efficiency in fund disbursement.</li>
                 <li>Authored and tested a variety of smart contracts for diverse applications, including locking mechanisms and lite DAO functionalities. These contributions bolstered the platform's security and operational capabilities, ensuring reliable and efficient contract execution.</li>
@@ -152,7 +192,10 @@
         
         <div class="experience-item">
             <h3>Xian.org</h3>
+            <div class="job-header">
             <div class="job-title">Software Engineer</div>
+                <div class="job-details">2024 June - 2025 Jan | Remote</div>
+            </div>
             <ul>
                 <li>
                     Migrated an NFT dApp to Xian, enhancing user engagement by developing Telegram and Twitter bots that notify users of new NFT creations. Modified API calls to ensure compatibility with Xian's blockchain specifications, resulting in a significant increase in transactional activity.
